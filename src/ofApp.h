@@ -1,8 +1,9 @@
-#pragma once
 
 #include "ofMain.h"
 #include "ofxPDSP.h"
 #include "synth.h"
+#include "ofxGui.h"
+#pragma once
 
 class ofApp : public ofBaseApp{
 
@@ -23,13 +24,13 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    // pdsp modules
-    pdsp::Engine    engine;
+
+    synth Synth;
+    pdsp::Engine engine;
     
-    SlideSynth          synth;
-    pdsp::ValueControl  amp_ctrl;
-    pdsp::ValueControl  pitch_ctrl;
-    pdsp:: Delay delay;
+    
+    
+    
     
 
 };
