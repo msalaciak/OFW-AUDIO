@@ -27,6 +27,9 @@ public:
 
     synth Synth;
     pdsp::Engine engine;
+    ofxPanel gui;
+    
+    
     
     
     

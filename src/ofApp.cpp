@@ -7,18 +7,30 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    ofSetWindowTitle("synth");
+    
+    
+    Synth.patch();
+    Synth.setUI();
     
     
     
     //--------PATCHING-------
     
+    
     Synth * 0.5f >> engine.audio_out(0);
     Synth * 0.5f >> engine.audio_out(1);
 
 
+
+    gui.setHeaderBackgroundColor(ofColor(0,40,40));
+    gui.setBorderColor(ofColor(0,40,40));
     
-    
+    gui.setDefaultFillColor(ofColor(0,90,90));
+    gui.setDefaultBackgroundColor(ofColor(0,0,0));
+    gui.setup("panel");
+    gui.add(Synth.getUi());
+    gui.setPosition(420, 20);
 
     
 
@@ -28,7 +40,7 @@ void ofApp::setup(){
     engine.listDevices();
     engine.setDeviceID(1); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
     engine.setup( 44100, 512, 2);
-    
+//
 
     
     
@@ -44,47 +56,59 @@ void ofApp::draw(){
     ofBackground(0);
     ofSetColor(255);
 //    ofDrawBitmapString("hover the mouse in the window, \nx = pitch, y = amp/filter", 50, 50);
-
+    gui.draw();
   
     
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    float pitch = ofMap(x,0,ofGetWidth(),36.0f,72.0f);
+    Synth.setPitch(pitch);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-
-    float gain = ofMap(y,0.0f, ofGetHeight(),1.0f,0.0f);
-    float p = ofMap(x,0.0f,ofGetWidth(),48.f,84.f);
-    gain >> Synth.in("amp");
-    p >> Synth.in("pitch");
-  
-    
-   
+ 
     
 }
 
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+    float pitch = ofMap(x,0,ofGetWidth(),36.0f,72.0f);
+    Synth.setPitch(pitch);
+    
+ 
+    
+    
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
+    
+   
 
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+    
+    if (key == 'k') {
+       
+        Synth.setTrigger(1.0f);
+        
+    }
 
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
+    if (key == 'k') {
+         Synth.trigOff();
+        
+    }
 
 }
 

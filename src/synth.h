@@ -24,14 +24,35 @@ public:
         
     void patch();
    
+    void setPitch(float pitch);
+    void setTrigger(float gate);
+    void trigOff();
+    void setUI();
+    inline ofParameterGroup getUi() {return ui;}
     
     
+ 
     
     
+      
     
 private:
     pdsp::Amp amp;
-    pdsp::FMOperator osc;
+    pdsp::VAOscillator osc;
+    pdsp::ADSR env;
+    pdsp::TriggerControl gate_control;
+    pdsp::ValueControl pitch_control;
+    float pitch;
+    float gate;
+    ofParameterGroup ui;
+    pdsp::Parameter attack;
+    pdsp::Parameter decay;
+    pdsp::Parameter sustain;
+    pdsp::Parameter release;
+    
+    
+   
+    
   
     
 };
