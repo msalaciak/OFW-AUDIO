@@ -29,7 +29,11 @@ void ofApp::setup(){
     gui.setDefaultFillColor(ofColor(0,90,90));
     gui.setDefaultBackgroundColor(ofColor(0,0,0));
     gui.setup("panel");
-    gui.add(Synth.getUi());
+    gui.add(Synth.getUiEnv());
+    gui.add(Synth.getUiFilter());
+    gui.add(Synth.getUiLFO());
+    gui.add(Synth.getUiLFO2());
+    gui.add(Synth.getUiAmp());
     gui.setPosition(420, 20);
 
     
@@ -41,7 +45,8 @@ void ofApp::setup(){
     engine.setDeviceID(1); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
     engine.setup( 44100, 512, 2);
 //
-
+    scope.set(4096);
+    Synth * dB(-6.0f) >> scope >> engine.blackhole();
     
     
 }
@@ -58,6 +63,7 @@ void ofApp::draw(){
 //    ofDrawBitmapString("hover the mouse in the window, \nx = pitch, y = amp/filter", 50, 50);
     gui.draw();
   
+     scope.draw( 200, 50, 400, 400);
     
 }
 
@@ -95,7 +101,7 @@ void ofApp::mouseReleased(int x, int y, int button){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     
-    if (key == 'k') {
+    if (key == 32) {
        
         Synth.setTrigger(1.0f);
         
@@ -105,7 +111,7 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    if (key == 'k') {
+    if (key == 32) {
          Synth.trigOff();
         
     }
