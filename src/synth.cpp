@@ -14,6 +14,11 @@ synth :: synth(){
 
 
 void synth :: setUI() {
+    
+    uiOSC.setName("OSC WAVEFORMS");
+    uiOSC.add(oscWaveForms.set("WaveForms",0,0,3));
+    uiOSC.add(oscAmount.set("OSC Amount",10.0f,0.0f,20.0f));
+    
     uiEnv.setName("ENV CONTROL");
     uiEnv.add(attack.set("Attack", 0.0f, 0.0f, 5000.0f));
     uiEnv.add(decay.set("Decay", 50.0f, 0.0f, 5000.0f));
@@ -59,8 +64,10 @@ void synth :: setUI() {
 void synth :: patch() {
     
     addModuleInput("pitch", osc1.in_pitch());
-    
+
     addModuleOutput("signal", amp);
+    
+
     
     
   
@@ -90,6 +97,15 @@ void synth :: patch() {
     
     
     //osc controls & switches
+    oscSwitch.resize(4);
+    osc1.out_pulse() >> oscSwitch.input(0);
+    osc1.out_triangle() >> oscSwitch.input(1);
+    osc1.out_saw() >> oscSwitch.input(2);
+    osc1.out_sine() >> oscSwitch.input(3);
+
+    oscWaveForms >> oscSwitch.in_select();
+    oscSwitch >> osc_amp;
+    oscAmount >> osc_amp.in_mod();
     
     
     //lfo switches & controls
@@ -98,7 +114,7 @@ void synth :: patch() {
     lfo1.out_sine() >> lfo1_switch.input(1);
     lfo1.out_sample_and_hold() >> lfo1_switch.input(2);
     lfo1.out_triangle() >> lfo1_switch.input(3);
-    lfo1.out_saw() >> lfo1_switch.input(4);
+    lfo1.out_square() >> lfo1_switch.input(4);
     
     
     lfo1_shape >> lfo1_switch.in_select();
@@ -144,7 +160,7 @@ void synth :: patch() {
     pitch_control >> osc1.in_pitch();
     
     
-    osc1.out_pulse()  >> filter  >> amp;
+   osc_amp >> filter >> amp;
 
     
 

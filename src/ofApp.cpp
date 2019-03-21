@@ -31,13 +31,14 @@ void ofApp::setup(){
     gui.setDefaultFillColor(ofColor(0,90,90));
     gui.setDefaultBackgroundColor(ofColor(0,0,0));
     gui.setup("MODULATION");
+    gui.add(Synth.getUiOsc());
     gui.add(Synth.getUiEnv());
     gui.add(Synth.getUiFilter());
     gui.add(Synth.getUiLFO());
     gui.add(Synth.getUiLFO2());
     gui.add(Synth.getUiAmp());
     
-    gui.setPosition(0,40 );
+    gui.setPosition(0,17 );
 
     
 
@@ -110,6 +111,12 @@ void ofApp::keyPressed(int key){
         
     }
 
+    if(key == 's') {
+        gui.saveToFile("settings.xml");
+    }
+    if(key == 'l') {
+        gui.loadFromFile("settings.xml");
+    }
 }
 
 //--------------------------------------------------------------

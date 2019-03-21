@@ -33,6 +33,7 @@ public:
     inline ofParameterGroup getUiLFO() {return uiLFO;}
     inline ofParameterGroup getUiLFO2() {return uiLFO2;}
     inline ofParameterGroup getUiAmp() {return uiAmp;}
+    inline ofParameterGroup getUiOsc() {return uiOSC;}
 
     
 
@@ -49,8 +50,10 @@ private:
     pdsp::Amp lfo_filter1_amp;
     pdsp::Amp lfo_osc2_amp;
     pdsp::Amp lfo_filter2_amp;
+    pdsp::Amp osc_amp;
    
     pdsp::VAOscillator osc1;
+    
     pdsp::ADSR env;
     pdsp::LFO lfo1;
      pdsp::LFO lfo2;
@@ -63,13 +66,19 @@ private:
     float gate;
     
     
+    
     //parameter groups of synth
     ofParameterGroup uiEnv;
     ofParameterGroup uiFilter;
     ofParameterGroup uiLFO;
     ofParameterGroup uiLFO2;
     ofParameterGroup uiAmp;
+    ofParameterGroup uiOSC;
     
+    //osc controls
+    pdsp::Parameter oscWaveForms;
+    pdsp::Parameter oscAmount;
+    pdsp::Switch oscSwitch;
     
     //amp controls
     pdsp::Parameter drone;
