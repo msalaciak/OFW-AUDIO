@@ -34,7 +34,7 @@ void ofApp::setup(){
     gui.add(Synth.getUiLFO());
     gui.add(Synth.getUiLFO2());
     gui.add(Synth.getUiAmp());
-    gui.setPosition(420, 20);
+    gui.setPosition(0,40 );
 
     
 
@@ -63,7 +63,7 @@ void ofApp::draw(){
 //    ofDrawBitmapString("hover the mouse in the window, \nx = pitch, y = amp/filter", 50, 50);
     gui.draw();
   
-     scope.draw( 200, 50, 400, 400);
+     scope.draw(280, 70, 400, 400);
     
 }
 

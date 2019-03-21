@@ -38,7 +38,7 @@ void synth :: setUI() {
     uiLFO2.add(lfo2_to_filter_amt.set("LFO to Filter RES",0.f,0.f,200.f));
     
     uiAmp.setName("AMP Control");
-    uiAmp.add(drone.set("DRONE",0,0,50));
+    uiAmp.add(drone.set("DRONE",0.0f,0.0f,4.0f));
     
    
     
