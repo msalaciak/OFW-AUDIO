@@ -23,6 +23,7 @@ void synth :: setUI() {
     uiFilter.setName("FILTER CONTROL");
     uiFilter.add(cutoff.set("Cutoff", 82,20,136));
     uiFilter.add(resonance.set("Resonance", 0.0f, 0.0f, 1.0f));
+    uiFilter.add(filterMode.set("Filter Mode", 0, 0, 5));
 
     
     uiLFO.setName("LFO 1 CONTROL");
@@ -37,8 +38,10 @@ void synth :: setUI() {
     uiLFO2.add(lfo2_to_osc_amt.set("LFO to OSC",0.0f,0.0f,50.0f));
     uiLFO2.add(lfo2_to_filter_amt.set("LFO to Filter RES",0.f,0.f,200.f));
     
-    uiAmp.setName("AMP Control");
+    uiAmp.setName("AMP CONTROL");
     uiAmp.add(drone.set("DRONE",0.0f,0.0f,4.0f));
+    
+    
     
    
     
@@ -76,12 +79,10 @@ void synth :: patch() {
     cutoff >> filter.in_cutoff();
     resonance >> filter.in_reso();
     
+    //filter switch
+    filterMode>>filter.in_mode();
     
-   
-    
-   
-    
-    
+  
     //pitch controls
     pitch_control.set(72.0f);
     pitch_control.enableSmoothing(50.0f);

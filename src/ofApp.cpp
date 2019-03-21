@@ -8,7 +8,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     ofSetWindowTitle("synth");
-    
+    ofSetFrameRate(60);
     
     Synth.patch();
     Synth.setUI();
@@ -18,22 +18,25 @@ void ofApp::setup(){
     //--------PATCHING-------
     
     
-    Synth * 0.5f >> engine.audio_out(0);
-    Synth * 0.5f >> engine.audio_out(1);
+    Synth * 0.5f >>engine.audio_out(0);
+    Synth * 0.5f >>engine.audio_out(1);
 
 
-
+    
     gui.setHeaderBackgroundColor(ofColor(0,40,40));
     gui.setBorderColor(ofColor(0,40,40));
     
+ 
+    
     gui.setDefaultFillColor(ofColor(0,90,90));
     gui.setDefaultBackgroundColor(ofColor(0,0,0));
-    gui.setup("panel");
+    gui.setup("MODULATION");
     gui.add(Synth.getUiEnv());
     gui.add(Synth.getUiFilter());
     gui.add(Synth.getUiLFO());
     gui.add(Synth.getUiLFO2());
     gui.add(Synth.getUiAmp());
+    
     gui.setPosition(0,40 );
 
     
@@ -45,7 +48,7 @@ void ofApp::setup(){
     engine.setDeviceID(1); // REMEMBER TO SET THIS AT THE RIGHT INDEX!!!!
     engine.setup( 44100, 512, 2);
 //
-    scope.set(4096);
+    scope.set(512);
     Synth * dB(-6.0f) >> scope >> engine.blackhole();
     
     

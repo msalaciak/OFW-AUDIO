@@ -29,7 +29,10 @@ public:
     pdsp::Engine engine;
     ofxPanel gui;
     pdsp::Scope scope;
+
     
+    
+   
     
     
     

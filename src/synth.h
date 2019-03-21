@@ -73,6 +73,7 @@ private:
     
     //amp controls
     pdsp::Parameter drone;
+    
     //envelope controls
     pdsp::Parameter attack;
     pdsp::Parameter decay;
@@ -82,10 +83,9 @@ private:
     //filter controls
     pdsp::Parameter cutoff;
     pdsp::Parameter resonance;
-    pdsp::Parameter amount;
-    pdsp::Parameter modulation;
-    
-    //lfo controls
+    pdsp::Parameter filterMode;
+
+    //lfo1 controls
     pdsp::Parameter lfo1_speed;
     pdsp::Parameter lfo1_shape;
     pdsp::Parameter lfo1_to_osc_amt;
@@ -93,7 +93,7 @@ private:
    
     pdsp::Switch lfo1_switch;
     
-    
+    //lfo2 controls
     pdsp::Parameter lfo2_speed;
     pdsp::Parameter lfo2_shape;
     pdsp::Parameter lfo2_to_osc_amt;
@@ -101,6 +101,8 @@ private:
     
     pdsp::Switch lfo2_switch;
     
+    //reverb
+    pdsp::BasiVerb reverb;
   
     
 };
