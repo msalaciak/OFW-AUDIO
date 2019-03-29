@@ -51,8 +51,12 @@ private:
     pdsp::Amp lfo_osc2_amp;
     pdsp::Amp lfo_filter2_amp;
     pdsp::Amp osc_amp;
+  
+   
    
     pdsp::VAOscillator osc1;
+    
+   
     
     pdsp::ADSR env;
     pdsp::LFO lfo1;
@@ -80,8 +84,10 @@ private:
     pdsp::Parameter oscAmount;
     pdsp::Switch oscSwitch;
     
-    //amp controls
+    //amp controls & reverb
     pdsp::Parameter drone;
+  
+
     
     //envelope controls
     pdsp::Parameter attack;
@@ -110,8 +116,10 @@ private:
     
     pdsp::Switch lfo2_switch;
     
-    //reverb
-    pdsp::BasiVerb reverb;
+   
+    
+    
+    
   
     
 };

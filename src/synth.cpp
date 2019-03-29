@@ -44,7 +44,8 @@ void synth :: setUI() {
     uiLFO2.add(lfo2_to_filter_amt.set("LFO to Filter RES",0.f,0.f,200.f));
     
     uiAmp.setName("AMP CONTROL");
-    uiAmp.add(drone.set("DRONE",0.0f,0.0f,4.0f));
+    uiAmp.add(drone.set("Drone Amount",0.0f,0.0f,4.0f));
+    
     
     
     
@@ -64,16 +65,20 @@ void synth :: setUI() {
 void synth :: patch() {
     
     addModuleInput("pitch", osc1.in_pitch());
-
+    
     addModuleOutput("signal", amp);
+
+   
     
 
     
     
   
     
-    //drone
-        drone>>amp.in_mod();
+    //drone & reverb
+    drone>>amp.in_mod();
+    
+  
    
     //env controls
     attack >> env.in_attack();
@@ -160,12 +165,19 @@ void synth :: patch() {
     pitch_control >> osc1.in_pitch();
     
     
-   osc_amp >> filter >> amp;
+    osc_amp  >>filter >> amp;
+                   
+   
+   
+    
 
     
 
     
 }
+
+
+
 
 void synth :: setPitch(float pitch){
     pitch_control.set(pitch);

@@ -30,6 +30,8 @@ public:
     ofxPanel gui;
     pdsp::Scope scope;
 
+
+    
     
     
    

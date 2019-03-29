@@ -18,10 +18,13 @@ void ofApp::setup(){
     //--------PATCHING-------
     
     
-    Synth * 0.5f >>engine.audio_out(0);
-    Synth * 0.5f >>engine.audio_out(1);
 
 
+
+    Synth * 0.5f  >> engine.audio_out(0);
+    Synth * 0.5f  >> engine.audio_out(1);
+    
+   
     
     gui.setHeaderBackgroundColor(ofColor(0,40,40));
     gui.setBorderColor(ofColor(0,40,40));
@@ -37,6 +40,7 @@ void ofApp::setup(){
     gui.add(Synth.getUiLFO());
     gui.add(Synth.getUiLFO2());
     gui.add(Synth.getUiAmp());
+
     
     gui.setPosition(0,17 );
 
@@ -116,7 +120,7 @@ void ofApp::keyPressed(int key){
     }
     if(key == 'l') {
         gui.loadFromFile("settings.xml");
-    }
+    } 
 }
 
 //--------------------------------------------------------------
