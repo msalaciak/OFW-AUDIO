@@ -34,8 +34,9 @@ public:
     inline ofParameterGroup getUiLFO2() {return uiLFO2;}
     inline ofParameterGroup getUiAmp() {return uiAmp;}
     inline ofParameterGroup getUiOsc() {return uiOSC;}
+  
 
-    
+  
 
     
     
@@ -79,6 +80,9 @@ private:
     ofParameterGroup uiAmp;
     ofParameterGroup uiOSC;
     
+
+    
+
     //osc controls
     pdsp::Parameter oscWaveForms;
     pdsp::Parameter oscAmount;
@@ -86,7 +90,7 @@ private:
     
     //amp controls & reverb
     pdsp::Parameter drone;
-  
+
 
     
     //envelope controls

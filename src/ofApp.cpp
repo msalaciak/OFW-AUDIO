@@ -40,6 +40,7 @@ void ofApp::setup(){
     gui.add(Synth.getUiLFO());
     gui.add(Synth.getUiLFO2());
     gui.add(Synth.getUiAmp());
+  
 
     
     gui.setPosition(0,17 );

@@ -47,16 +47,7 @@ void synth :: setUI() {
     uiAmp.add(drone.set("Drone Amount",0.0f,0.0f,4.0f));
     
     
-    
-    
-   
-    
-    
-    
-    
-
-
-    
+ 
     
 }
 
@@ -69,11 +60,9 @@ void synth :: patch() {
     addModuleOutput("signal", amp);
 
    
+   
     
-
     
-    
-  
     
     //drone & reverb
     drone>>amp.in_mod();
@@ -166,9 +155,10 @@ void synth :: patch() {
     
     
     osc_amp  >>filter >> amp;
+    
+    
                    
-   
-   
+  
     
 
     
@@ -196,7 +186,6 @@ void synth:: trigOff(){
     gate_control.off();
     
 }
-
 
 
 
