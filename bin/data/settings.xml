@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<channel_strip>
+	<compressor_parameters>
+		<comp_threshold>-20</comp_threshold>
+		<GR_meter>0</GR_meter>
+		<comp_attack__ms_>10</comp_attack__ms_>
+		<comp_release__ms_>50</comp_release__ms_>
+		<threshold>-20</threshold>
+		<attack__ms_>10</attack__ms_>
+		<release__ms_>50</release__ms_>
+	</compressor_parameters>
+	<delays_parameters>
+		<delay_send>-30</delay_send>
+		<delay_L_time>200</delay_L_time>
+		<delay_R_time>300</delay_R_time>
+		<delay_feedback>0.5</delay_feedback>
+		<delay_damping>0.5</delay_damping>
+		<send>-30</send>
+		<time_L__ms_>200</time_L__ms_>
+		<time_R__ms_>300</time_R__ms_>
+		<feedback>0.5</feedback>
+		<damping>0.5</damping>
+	</delays_parameters>
+	<channel_volume>0</channel_volume>
+	<channel_strip />
+</channel_strip>
+<MODULATION>
+	<OSC_WAVEFORMS>
+		<WaveForms>1</WaveForms>
+		<OSC_Amount>1.42857</OSC_Amount>
+	</OSC_WAVEFORMS>
+	<ENV_CONTROL>
+		<Attack>0</Attack>
+		<Decay>50</Decay>
+		<Sustain>0.5</Sustain>
+		<Release>500</Release>
+	</ENV_CONTROL>
+	<FILTER_CONTROL>
+		<Cutoff>31</Cutoff>
+		<Resonance>0.336735</Resonance>
+		<Filter_Mode>1</Filter_Mode>
+	</FILTER_CONTROL>
+	<LFO_1_CONTROL>
+		<LFO_Wave>1</LFO_Wave>
+		<LFO_Freq>50</LFO_Freq>
+		<LFO_to_OSC>4.84694</LFO_to_OSC>
+		<LFO_to_Filter>103.061</LFO_to_Filter>
+	</LFO_1_CONTROL>
+	<LFO_2_CONTROL>
+		<LFO_Wave>1</LFO_Wave>
+		<LFO_Freq>50</LFO_Freq>
+		<LFO_to_OSC>7.14286</LFO_to_OSC>
+		<LFO_to_Filter_RES>115.306</LFO_to_Filter_RES>
+	</LFO_2_CONTROL>
+	<AMP_CONTROL>
+		<DRONE>0.530612</DRONE>
+		<Drone_Amount>0.632653</Drone_Amount>
+		<Reverb_Amount>0</Reverb_Amount>
+	</AMP_CONTROL>
+</MODULATION>
