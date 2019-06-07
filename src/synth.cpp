@@ -17,7 +17,7 @@ void synth :: setUI() {
     
     uiOSC.setName("OSC WAVEFORMS");
     uiOSC.add(oscWaveForms.set("WaveForms",0,0,3));
-    uiOSC.add(oscAmount.set("OSC Amount",10.0f,0.0f,20.0f));
+    uiOSC.add(oscAmount.set("OSC Amount",1.0f,0.0f,10.0f));
     
     uiEnv.setName("ENV CONTROL");
     uiEnv.add(attack.set("Attack", 0.0f, 0.0f, 5000.0f));
@@ -30,19 +30,19 @@ void synth :: setUI() {
     uiFilter.add(resonance.set("Resonance", 0.0f, 0.0f, 1.0f));
     uiFilter.add(filterMode.set("Filter Mode", 0, 0, 5));
 
-    
+
     uiLFO.setName("LFO 1 CONTROL");
     uiLFO.add(lfo1_shape.set("LFO Wave",0,0,4));
     uiLFO.add(lfo1_speed.set("LFO Freq",0.5f,0.005f,50.0f));
     uiLFO.add(lfo1_to_osc_amt.set("LFO to OSC",0.0f,0.0f,50.0f));
     uiLFO.add(lfo1_to_filter_amt.set("LFO to Filter",0.f,0.f,200.f));
-   
+
     uiLFO2.setName("LFO 2 CONTROL");
     uiLFO2.add(lfo2_shape.set("LFO Wave",0,0,4));
     uiLFO2.add(lfo2_speed.set("LFO Freq",0.5f,0.005f,50.0f));
     uiLFO2.add(lfo2_to_osc_amt.set("LFO to OSC",0.0f,0.0f,50.0f));
     uiLFO2.add(lfo2_to_filter_amt.set("LFO to Filter RES",0.f,0.f,200.f));
-    
+
     uiAmp.setName("AMP CONTROL");
     uiAmp.add(drone.set("Drone Amount",0.0f,0.0f,4.0f));
     
@@ -70,14 +70,18 @@ void synth :: patch() {
   
    
     //env controls
+    
     attack >> env.in_attack();
     decay >> env.in_decay();
     sustain >> env.in_sustain();
     release >> env.in_release();
     
     
+    
     //filter controls
     cutoff >> filter.in_cutoff();
+    
+ 
     resonance >> filter.in_reso();
     
     //filter switch
@@ -157,7 +161,7 @@ void synth :: patch() {
     osc_amp  >>filter >> amp;
     
     
-                   
+  
   
     
 

@@ -29,6 +29,8 @@ public:
     void trigOff();
     void setUI();
     inline ofParameterGroup getUiEnv() {return uiEnv;}
+    
+    
     inline ofParameterGroup getUiFilter() {return uiFilter;}
     inline ofParameterGroup getUiLFO() {return uiLFO;}
     inline ofParameterGroup getUiLFO2() {return uiLFO2;}
@@ -47,6 +49,7 @@ public:
     
 private:
     pdsp::Amp amp;
+    
     pdsp::Amp lfo_osc1_amp;
     pdsp::Amp lfo_filter1_amp;
     pdsp::Amp lfo_osc2_amp;
@@ -60,11 +63,13 @@ private:
    
     
     pdsp::ADSR env;
+    
     pdsp::LFO lfo1;
      pdsp::LFO lfo2;
     
     pdsp::TriggerControl gate_control;
     pdsp::ValueControl pitch_control;
+    
     pdsp::VAFilter filter;
     
     float pitch;
